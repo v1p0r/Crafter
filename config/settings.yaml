@@ -1,0 +1,12 @@
+models:
+  main:
+    name: "MiniMax-M2.7"
+    base_url: "https://api.minimax.io/anthropic"
+    max_tokens: 4096
+    temperature: 0.7
+    context_window: 204800
+  vlm:
+    name: "gemini-3-flash-preview"
+    base_url: "https://generativelanguage.googleapis.com/v1beta/openai"
+    max_tokens: 4096
+    temperature: 0.7

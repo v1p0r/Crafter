@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.eggs
+dist
+build
+venv
+.venv
+
+# Data output
+data/output
+codebase_data
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Architecture docs (keep in repo but not in docker)
+architecture.md
+architecture_questions.md
+unsolved.md

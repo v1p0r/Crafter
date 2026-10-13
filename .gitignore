@@ -1,0 +1,49 @@
+# architecture docs
+architecture.md
+architecture_questions.md
+
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+.venv/
+
+# env
+.env
+.env.*
+
+# os
+.DS_Store
+Thumbs.db
+
+# ide
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# claude
+CLAUDE.md
+
+# data inputs (parsed papers) and run outputs
+data/parsed/
+data/output/
+
+# docs
+docs/
+plan.md
+architecture.md
+architecture_questions.md
+
+# slurm runtime artifacts (per-job logs + summaries)
+slurm/logs/
+slurm/summaries/
+
+
+
