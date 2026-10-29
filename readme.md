@@ -4,7 +4,7 @@
 
 **NeurIPS 2026**
 
-[Paper](#) · [Quick start](#quick-start) · [Reproducing the paper](#reproducing-the-paper) · [Citation](#citation)
+[Project page](https://v1p0r.github.io/Crafter/) · [Paper](#) · [Quick start](#quick-start) · [Reproducing the paper](#reproducing-the-paper) · [Citation](#citation)
 
 <img src="assets/pipeline.png" alt="Crafter pipeline" width="100%">
 
