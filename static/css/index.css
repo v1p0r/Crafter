@@ -56,12 +56,8 @@ a:hover { color: #1d4ed8; }
 .top-nav .container { display: flex; align-items: center; width: 100%; }
 .top-nav .navbar-item { font-weight: 500; color: var(--c-text); }
 .top-nav .navbar-item:hover { color: var(--c-accent); background: transparent; }
-.top-nav .brand { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
-.brand-mark {
-  display: inline-grid; place-items: center;
-  width: 1.6rem; height: 1.6rem; margin-right: .45rem;
-  border-radius: 7px; background: var(--c-accent); color: #fff; font-size: .95rem;
-}
+@media (min-width: 1024px) { .top-nav .navbar-brand { display: none; } }
+.top-nav .navbar-brand { justify-content: flex-end; }
 @media (max-width: 1023px) {
   .top-nav .container { display: block; }
   .top-nav .navbar-menu { background: #fff; box-shadow: 0 8px 16px rgba(10,10,10,.08); }
