@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="theme-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafter: Towards Automated Reproducible Machine Learning via Agentic Code Generation</title>
+  <meta name="description" content="Crafter turns a machine learning paper into a runnable repository through context-calibrated implementation recovery: gap filling, hierarchical planning, and execution-aware debugging. NeurIPS 2026.">
+  <meta name="keywords" content="Crafter, paper to code, agentic code generation, reproducibility, PaperBench, LLM agents, NeurIPS 2026">
+  <link rel="canonical" href="https://v1p0r.github.io/Crafter/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://v1p0r.github.io/Crafter/">
+  <meta property="og:title" content="Crafter: Towards Automated Reproducible ML via Agentic Code Generation">
+  <meta property="og:description" content="Crafter turns a machine learning paper into a runnable repository. NeurIPS 2026.">
+  <meta property="og:image" content="https://v1p0r.github.io/Crafter/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crafter: Towards Automated Reproducible ML via Agentic Code Generation">
+  <meta name="twitter:description" content="Crafter turns a machine learning paper into a runnable repository. NeurIPS 2026.">
+  <meta name="twitter:image" content="https://v1p0r.github.io/Crafter/static/images/social_preview.png">
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+
+<!-- ===================== Top bar ===================== -->
+<nav class="navbar top-nav" role="navigation" aria-label="main navigation">
+  <div class="container is-max-desktop">
+    <div class="navbar-brand">
+      <a class="navbar-item brand" href="#top"><span class="brand-mark">C</span> Crafter</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="topNavMenu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="topNavMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#get-started">Get started</a>
+        <a class="navbar-item" href="#bibtex">BibTeX</a>
+        <a class="navbar-item" href="https://github.com/v1p0r/Crafter" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-github"></i></span><span>GitHub</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== Hero ===================== -->
+<section class="hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <span class="venue-tag"><i class="fas fa-award"></i> NeurIPS 2026</span>
+          <h1 class="title is-1 publication-title">Crafter: Towards Automated Reproducible Machine&nbsp;Learning via Agentic Code Generation</h1>
+
+          <!-- TODO: replace author placeholders with real names/links and affiliations -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="#">Author One</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Author Two</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Author Three</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="#">Author Four</a><sup>1</sup></span>
+          </div>
+          <div class="is-size-6 publication-affiliations">
+            <span class="author-block"><sup>1</sup>Affiliation One,</span>
+            <span class="author-block"><sup>2</sup>Affiliation Two</span>
+          </div>
+
+          <p class="tagline">Crafter turns a machine learning paper into a runnable repository.</p>
+
+          <div class="publication-links">
+            <!-- TODO: set the paper PDF URL -->
+            <a class="button link-btn" href="#" title="Paper PDF (coming soon)">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+            </a>
+            <!-- TODO: set the arXiv URL -->
+            <a class="button link-btn" href="#" title="arXiv (coming soon)">
+              <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+            </a>
+            <a class="button link-btn" href="https://github.com/v1p0r/Crafter" target="_blank" rel="noopener">
+              <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+            </a>
+            <a class="button link-btn" href="#bibtex">
+              <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Teaser ===================== -->
+<section class="section teaser-section pt-0">
+  <div class="container is-max-widescreen">
+    <figure class="teaser">
+      <img src="static/images/pipeline.png" alt="Crafter pipeline: a paper is partitioned, its figures and implementation gaps are analysed, a planner produces an architecture and module specifications, code is generated and debugged, and all stages share a global memory." width="1800" height="900">
+      <figcaption>
+        <strong>Overview.</strong> Crafter reads a paper, recovers the implementation details the text leaves out, plans the repository hierarchically, generates code module by module, and repairs it by running it. Every stage reads and writes a shared global memory, so the pipeline can resume from any cached stage.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== Headline numbers ===================== -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">0.835</div>
+        <div class="stat-label">PaperBench Code-Dev score<br><span class="stat-sub">avg. over 23 papers, Claude Sonnet 4.6</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">17<span class="stat-denom">/23</span></div>
+        <div class="stat-label">papers won<br><span class="stat-sub">vs. Paper2Code and DeepCode</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7<span class="stat-denom">/7</span></div>
+        <div class="stat-label">repositories reach M7<br><span class="stat-sub">execution + liveness + contribution</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5.7</div>
+        <div class="stat-label">repair cycles on average<br><span class="stat-sub">about half of either baseline</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Abstract ===================== -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Turning a machine learning paper into a faithful, runnable implementation is hard because papers omit the details a programmer needs: referenced architectures, baseline methods, dataset preprocessing, hyperparameters, and algorithmic corner cases. Crafter treats reproduction as <strong>context-calibrated implementation recovery</strong> rather than single-pass code generation. It builds an evidence-grounded specification from the paper, resolves missing implementation details <em>before</em> planning, and repairs the generated repository through execution-aware debugging.
+          </p>
+          <p>
+            On 23 PaperBench papers with Claude Sonnet 4.6, Crafter reaches an average Code-Dev score of <strong>0.84</strong>, improving over Paper2Code by 19.7% and over DeepCode by 22.1%, and it wins on 17 of 23 papers. In execution-oriented evaluation it is the only system to reach the contribution-level milestone on every repository, with roughly half the repair cycles of either baseline. Ablations show that gap filling and execution-aware debugging each contribute, and that they compound.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Highlights ===================== -->
+<section class="section pt-0" id="highlights">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">What makes Crafter different</h2>
+    <div class="highlight-grid">
+      <div class="highlight">
+        <div class="highlight-icon"><i class="fas fa-puzzle-piece"></i></div>
+        <h3>Implementation-gap recovery</h3>
+        <p>A dedicated Gap Agent finds five categories of implementation-critical omissions (referenced architecture, baseline method, dataset detail, missing hyperparameter, algorithm gap) and resolves them from cited papers, external repositories, and dataset registries. The target paper's official code is explicitly blacklisted.</p>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon"><i class="fas fa-diagram-project"></i></div>
+        <h3>Figure-aware extraction</h3>
+        <p>A vision-language agent classifies figures, discards result plots, and extracts architecture diagrams into structured component and flow records that downstream planners consume as text.</p>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon"><i class="fas fa-sitemap"></i></div>
+        <h3>Hierarchical planning with validation</h3>
+        <p>A main planner fixes the global architecture, sub-planners produce module-level specs, and a validator enforces orchestrator/module hygiene before any code is written.</p>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon"><i class="fas fa-code"></i></div>
+        <h3>Asymmetric-context code generation</h3>
+        <p>Modules see only their declared dependencies; orchestrators see the full module layer. Two passes, in dependency order, keep each prompt focused and consistent.</p>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon"><i class="fas fa-bug-slash"></i></div>
+        <h3>Execution-aware debugging</h3>
+        <p>A debug agent runs the repository, diagnoses root causes, and applies fixes through a multi-granularity <code>submit_fix</code> tool: line edits, file rewrites, or dependency-cascade regeneration, with snapshots and automatic rollback of regressions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== How it works ===================== -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How it works</h2>
+    <p class="section-lead has-text-centered">Crafter consumes a <a href="https://github.com/opendatalab/MinerU" target="_blank" rel="noopener">MinerU</a> parse of the paper (content list plus extracted figures) and runs the stages below. Each stage persists its state, so re-running with the same output directory resumes from the last cached stage.</p>
+
+    <ol class="stages">
+      <li class="stage">
+        <div class="stage-num">1</div>
+        <div class="stage-body">
+          <h3>Partition</h3>
+          <p>Deterministic split of the parsed paper into body, appendix, references, and preamble. No LLM involved.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">2</div>
+        <div class="stage-body">
+          <h3>Figure analysis</h3>
+          <p>A VLM classifies each figure and converts architecture diagrams into typed component/flow records.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">2.5</div>
+        <div class="stage-body">
+          <h3>Gap analysis</h3>
+          <p>Find missing implementation details and resolve them from external evidence: cited papers, third-party repositories, and dataset registries.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">3</div>
+        <div class="stage-body">
+          <h3>Planning</h3>
+          <p>Main planner fixes the global architecture, sub-planners write module specs, and a constraint validator checks the result.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">4</div>
+        <div class="stage-body">
+          <h3>Code generation</h3>
+          <p>Pass 1 writes modules with dependency-scoped context; pass 2 writes orchestrators with the full module layer in view.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">4.5</div>
+        <div class="stage-body">
+          <h3>Scaffolding</h3>
+          <p>Adds <code>reproduce.sh</code>, <code>requirements.txt</code>, and package <code>__init__</code> files.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">5</div>
+        <div class="stage-body">
+          <h3>Debug loop</h3>
+          <p>Run, diagnose, <code>submit_fix</code>, re-run. Snapshots and rollback protect against regressions.</p>
+        </div>
+      </li>
+      <li class="stage">
+        <div class="stage-num">6</div>
+        <div class="stage-body">
+          <h3>Unit tests <span class="tag is-light">optional</span></h3>
+          <p>Generates unit tests for the produced repository.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== Results ===================== -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <h3 class="title is-5 result-heading">Code-development faithfulness</h3>
+    <p class="result-note">PaperBench Code-Dev, mean paper-level score in [0, 1]. <em>Wins</em> = papers on which the method scores highest of the three.</p>
+
+    <div class="bars" aria-label="Code-Dev score by method and backend">
+      <div class="bars-group">
+        <div class="bars-title">Claude Sonnet 4.6 · PaperBench (23)</div>
+        <div class="bar-row"><span class="bar-name">Paper2Code</span><span class="bar-track"><span class="bar-fill" style="--v:0.698"></span></span><span class="bar-val">0.698</span></div>
+        <div class="bar-row"><span class="bar-name">DeepCode</span><span class="bar-track"><span class="bar-fill" style="--v:0.684"></span></span><span class="bar-val">0.684</span></div>
+        <div class="bar-row is-ours"><span class="bar-name">Crafter</span><span class="bar-track"><span class="bar-fill" style="--v:0.835"></span></span><span class="bar-val">0.835</span></div>
+      </div>
+      <div class="bars-group">
+        <div class="bars-title">MiniMax M2.7 · PaperBench (23)</div>
+        <div class="bar-row"><span class="bar-name">Paper2Code</span><span class="bar-track"><span class="bar-fill" style="--v:0.421"></span></span><span class="bar-val">0.421</span></div>
+        <div class="bar-row"><span class="bar-name">DeepCode</span><span class="bar-track"><span class="bar-fill" style="--v:0.442"></span></span><span class="bar-val">0.442</span></div>
+        <div class="bar-row is-ours"><span class="bar-name">Crafter</span><span class="bar-track"><span class="bar-fill" style="--v:0.588"></span></span><span class="bar-val">0.588</span></div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="table results-table is-fullwidth">
+        <thead>
+          <tr><th>Backend</th><th>Method</th><th class="num">PaperBench (23) Avg.</th><th class="num">Wins</th><th class="num">ICLR 2026 (4) Avg.</th><th class="num">Wins</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="3">Claude Sonnet 4.6</td><td>Paper2Code</td><td class="num">0.698</td><td class="num">4/23</td><td class="num">0.739</td><td class="num">0/4</td></tr>
+          <tr><td>DeepCode</td><td class="num">0.684</td><td class="num">2/23</td><td class="num">0.683</td><td class="num">0/4</td></tr>
+          <tr class="ours"><td>Crafter</td><td class="num">0.835</td><td class="num">17/23</td><td class="num">0.822</td><td class="num">4/4</td></tr>
+          <tr><td rowspan="3">MiniMax M2.7</td><td>Paper2Code</td><td class="num">0.421</td><td class="num">4/23</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td>DeepCode</td><td class="num">0.442</td><td class="num">1/23</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr class="ours"><td>Crafter</td><td class="num">0.588</td><td class="num">18/23</td><td class="num">—</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-5 result-heading">Execution-oriented evaluation</h3>
+    <p class="result-note">Seven repositories. M7 = execution, liveness, and contribution checks all pass. |ΔLOC| = lines changed by the repair loop.</p>
+    <div class="table-container">
+      <table class="table results-table is-fullwidth is-narrow-cols">
+        <thead>
+          <tr><th>Method</th><th class="num">Reached M7</th><th class="num">Avg. edit cycles</th><th class="num">|ΔLOC|</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paper2Code</td><td class="num">6/7</td><td class="num">10.7</td><td class="num">521</td></tr>
+          <tr><td>DeepCode</td><td class="num">6/7</td><td class="num">12.9</td><td class="num">615</td></tr>
+          <tr class="ours"><td>Crafter</td><td class="num">7/7</td><td class="num">5.7</td><td class="num">484</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-5 result-heading">Ablation</h3>
+    <p class="result-note">Nine papers, Claude Sonnet 4.6. Mean Code-Dev score.</p>
+    <div class="ablation">
+      <div class="abl"><div class="abl-val">0.888</div><div class="abl-label">Crafter (full)</div></div>
+      <div class="abl"><div class="abl-val">0.842</div><div class="abl-label">w/o debugging</div></div>
+      <div class="abl"><div class="abl-val">0.830</div><div class="abl-label">w/o gap filling</div></div>
+      <div class="abl"><div class="abl-val">0.819</div><div class="abl-label">w/o both</div></div>
+    </div>
+    <p class="result-note has-text-centered">Per-paper tables are in the paper's appendix.</p>
+  </div>
+</section>
+
+<!-- ===================== Get started ===================== -->
+<section class="section" id="get-started">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Get started</h2>
+    <p class="section-lead has-text-centered">Python 3.10+. Parse the paper with MinerU, then point Crafter at the parsed directory. See the <a href="https://github.com/v1p0r/Crafter#readme" target="_blank" rel="noopener">README</a> for backends, Docker, and the full reproduction protocol.</p>
+    <div class="code-block">
+      <button class="copy-btn" data-copy-target="quickstart" aria-label="Copy commands"><i class="far fa-copy"></i> Copy</button>
+<pre id="quickstart"><code>git clone git@github.com:v1p0r/Crafter.git &amp;&amp; cd Crafter
+python -m venv .venv &amp;&amp; source .venv/bin/activate
+pip install -r requirements.txt
+
+export ANTHROPIC_API_KEY=...   # main backend
+export GEMINI_API_KEY=...      # figure analysis
+
+./run.sh data/parsed/&lt;paper&gt; --output data/output/&lt;paper&gt; \
+  --target-codebase-blacklist https://github.com/&lt;owner&gt;/&lt;official-repo&gt;</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BibTeX ===================== -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <div class="code-block">
+      <button class="copy-btn" data-copy-target="bibtex-code" aria-label="Copy BibTeX"><i class="far fa-copy"></i> Copy</button>
+<!-- TODO: fill in the author field once the camera-ready author list is final -->
+<pre id="bibtex-code"><code>@inproceedings{crafter2026,
+  title     = {Crafter: Towards Automated Reproducible Machine Learning via Agentic Code Generation},
+  author    = {TODO},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Footer ===================== -->
+<footer class="footer">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            <a class="icon-link" href="https://github.com/v1p0r/Crafter" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </p>
+          <p>
+            This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            Layout adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> and
+            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page</a> templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/index.js"></script>
+</body>
+</html>
